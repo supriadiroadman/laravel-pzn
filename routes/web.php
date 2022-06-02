@@ -36,3 +36,11 @@ Route::get('hello-again', function () {
 Route::get('hello-world', function () {
     return view('hello.world', ['name'=> "Supriadi"]);
 });
+
+Route::get('/products/{id}', function ($productId) {
+    return "Product $productId";
+});
+
+Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
+    return "Product $productId, Item $itemId";
+});
