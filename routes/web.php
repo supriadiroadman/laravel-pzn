@@ -26,3 +26,13 @@ Route::redirect('/youtube', '/srs');
 Route::fallback(function () {
     return "404 By Supriadi";
 });
+
+Route::view('/hello', 'hello', ['name'=> 'Supriadi']);
+
+Route::get('hello-again', function () {
+    return view('hello', ['name'=> "Supriadi"]);
+});
+
+Route::get('hello-world', function () {
+    return view('hello.world', ['name'=> "Supriadi"]);
+});
