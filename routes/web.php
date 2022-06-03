@@ -71,4 +71,5 @@ Route::get('/produk-redirect/{id}', function ($id) {
 });
 
 Route::get('/controller/hello', [\App\Http\Controllers\HelloController::class, 'hello']);
+Route::get('/controller/hello/request', [\App\Http\Controllers\HelloController::class, 'request']);
 Route::get('/controller/halo/{name}', [\App\Http\Controllers\HelloController::class, 'halo']);

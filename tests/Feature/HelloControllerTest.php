@@ -20,4 +20,15 @@ class HelloControllerTest extends TestCase
             ->assertSeeText("Halo adi");
     }
 
+    public function testRequest()
+    {
+        $this->get('/controller/hello/request', [
+            'Accept' => 'plain/text'
+        ])->assertSeeText('controller/hello/request')
+            ->assertSeeText('http://lara-9.test/controller/hello/request')
+            ->assertSeeText('GET')
+            ->assertSeeText('plain/text');
+    }
+
+
 }
