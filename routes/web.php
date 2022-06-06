@@ -117,3 +117,6 @@ Route::get('/middleware/group', function () {
 Route::get('/middleware/parameter', function () {
     return "Middleware Parameter";
 })->middleware(['contohparameter:SUPRIADI,401']);
+
+Route::get('/form', [\App\Http\Controllers\FormController::class, 'form']);
+Route::post('/form', [\App\Http\Controllers\FormController::class, 'formSubmit']);
