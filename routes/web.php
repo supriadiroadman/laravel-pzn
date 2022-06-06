@@ -107,6 +107,11 @@ Route::get('/redirect/to', [\App\Http\Controllers\RedirectController::class, 're
 
 Route::get('/redirect/name', [\App\Http\Controllers\RedirectController::class, 'redirectName']);
 Route::get('/redirect/name/{name}', [\App\Http\Controllers\RedirectController::class, 'redirectHello'])->name('redirect-hello');
+Route::get('/redirect/named', function () {
+    return route('redirect-hello', ['name' => 'Adi']);
+    //return url()->route('redirect-hello', ['name'=>'Adi']);
+    //return \Illuminate\Support\Facades\URL::route('redirect-hello', ['name'=>'Adi']);
+});
 Route::get('/redirect/action', [\App\Http\Controllers\RedirectController::class, 'redirectAction']);
 Route::get('/redirect/pzn', [\App\Http\Controllers\RedirectController::class, 'redirectAway']);
 
@@ -122,5 +127,16 @@ Route::get('/middleware/parameter', function () {
     return "Middleware Parameter";
 })->middleware(['contohparameter:SUPRIADI,401']);
 
+Route::get('/url/action', function () {
+    return action([\App\Http\Controllers\FormController::class, 'form'], []);
+    //return url()->action([\App\Http\Controllers\FormController::class,'form'], []);
+    //return \Illuminate\Support\Facades\URL::action([\App\Http\Controllers\FormController::class,'form'], []);
+});
+
 Route::get('/form', [\App\Http\Controllers\FormController::class, 'form']);
 Route::post('/form', [\App\Http\Controllers\FormController::class, 'formSubmit']);
+
+Route::get('/url/current', function () {
+//    return url()->full();
+    return \Illuminate\Support\Facades\URL::full();
+});
